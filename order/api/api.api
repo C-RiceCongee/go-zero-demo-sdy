@@ -1,0 +1,21 @@
+syntax = "v1"
+
+type Request {
+	Id string `path:"id"`
+}
+
+type Response {
+	Id     string `json:"message"`
+	Name   string `json:"name"`
+	Gender string `json:"gender"`
+}
+
+@server (
+	prefix: /api/order
+)
+service api-api {
+	@handler ApiHandler
+	get /userinfo/:id (Request) returns (Response)
+}
+
+// goctl api go -api order/api/api.api -dir order/api

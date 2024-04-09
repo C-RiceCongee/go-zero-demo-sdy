@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package userrpc;
+option go_package="./userrpc";
+
+message Request {
+  string Id = 1;
+}
+
+message Response {
+  string Id = 1;
+  string Name = 2;
+  string Gender = 3;
+}
+
+service Userrpc {
+  rpc GetUserInfo(Request) returns(Response);
+}
+
+//goctl rpc protoc user/userrpc/userrpc.proto --go_out=user/userrpc/types --go-grpc_out=user/userrpc/types --zrpc_out=user/userrpc
