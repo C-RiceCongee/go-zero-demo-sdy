@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"encoding/json"
 
 	"go-0-sd/user/userapi/internal/svc"
 	"go-0-sd/user/userapi/internal/types"
@@ -25,6 +26,11 @@ func NewUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserInfo
 
 func (l *UserInfoLogic) UserInfo() (resp *types.UserInfoResponse, err error) {
 	// todo: add your logic here and delete this line
-
-	return
+	userId := l.ctx.Value("user_id").(json.Number)
+	username := l.ctx.Value("username").(string)
+	uid, _ := userId.Int64()
+	return &types.UserInfoResponse{
+		Id:       uint(uid),
+		UserName: username,
+	}, nil
 }
