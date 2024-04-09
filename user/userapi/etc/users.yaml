@@ -1,0 +1,6 @@
+Name: users
+Host: 0.0.0.0
+Port: 8888
+Auth:
+  AccessSecret: cw235sdh
+  AccessExpire: 3600 # 单位是秒

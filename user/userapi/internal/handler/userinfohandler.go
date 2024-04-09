@@ -2,8 +2,8 @@ package handler
 
 import (
 	"go-0-sd/common/response"
-	"go-0-sd/user/userapi/userapi/internal/logic"
-	"go-0-sd/user/userapi/userapi/internal/svc"
+	"go-0-sd/user/userapi/internal/logic"
+	"go-0-sd/user/userapi/internal/svc"
 	"net/http"
 )
 

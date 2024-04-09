@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"go-0-sd/user/userapi/userapi/internal/svc"
-	"go-0-sd/user/userapi/userapi/internal/types"
+	"go-0-sd/user/userapi/internal/svc"
+	"go-0-sd/user/userapi/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
