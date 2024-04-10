@@ -7,22 +7,22 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-// JwtPayLoad jwt中payload数据
-type JwtPayLoad struct {
+// PayLoad  jwt中payload数据
+type PayLoad struct {
 	UserID   uint   `json:"user_id"`
 	Username string `json:"username"` // 用户名
 	Role     int    `json:"role"`     // 权限  1 普通用户  2 管理员
 }
 
 type CustomClaims struct {
-	JwtPayLoad
+	PayLoad
 	jwt.RegisteredClaims
 }
 
 // GenToken 创建 Token
-func GenToken(user *JwtPayLoad, accessSecret string, expires int64) (string, error) {
+func GenToken(user *PayLoad, accessSecret string, expires int64) (string, error) {
 	claim := CustomClaims{
-		JwtPayLoad: *user,
+		PayLoad: *user,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Hour * time.Duration(expires))),
 		},

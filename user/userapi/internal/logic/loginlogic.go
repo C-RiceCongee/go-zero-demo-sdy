@@ -25,8 +25,8 @@ func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginLogic 
 }
 
 func (l *LoginLogic) Login(req *types.LoginRequest) (resp string, err error) {
-	// todo: add your logic here and delete this line
-	token, err := jwt.GenToken(&jwt.JwtPayLoad{
+	// 校验账号密码正确后
+	token, err := jwt.GenToken(&jwt.PayLoad{
 		UserID:   123123,
 		Username: req.UserName,
 		Role:     1,
